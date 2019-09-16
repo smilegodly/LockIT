@@ -113,7 +113,10 @@ def reset_timer(event=None):
 
 
 def showhelp():
-	os.system("start Documentation.pdf")
+
+	documentation = resource_path("Documentation.pdf")
+	os.startfile(documentation)
+
 
 def showWindow():
 
@@ -5731,7 +5734,7 @@ class DocumentPage(Page):
 		self.adddocument.wm_attributes('-topmost', 0)
 
 		self.filename = filedialog.askopenfilename(initialdir="/Documents", title="Select file",
-												   filetypes=(("all files", "*.*"), ("pdf files", "*.pdf")))
+												   filetypes=(("pdf files", "*.pdf*"),("docx files", "*.docx"), ("text files", "*.txt*"),("excel files", "*.xlsx*")))
 
 
 		self.adddocument.wm_attributes('-topmost', 1)
